@@ -35,6 +35,8 @@ app.post('/tba/events', function (req, res) {
   console.log('Got TBA notification');
   console.log(Object.prototype.toString.call(req.body));
   console.log(req.body.constructor.name);
+  console.log(req.keys);
+  console.log(req.body.keys);
   console.log(`Body: ${req.body.message_type}`);
 });
 
