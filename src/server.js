@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 //const slashCommandFactory = require('./slashCommand');
 
 const app = new Express();
+app.use(express.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -33,7 +34,11 @@ const port = PORT || 3000;
 app.get('/', (req, res) => res.send('Hello World!'));
 app.post('/tba/events', function (req, res) {
   console.log('Got TBA notification');
-  console.log('request =' + JSON.stringify(req.body))
+  console.log('request =' + JSON.stringify(req.body));
+  console.log(req.baseUrl);
+  console.log(req.body);
+  console.log(req.path);
+  console.log(req.get('content-type'));
   console.log(`Body: ${req.body.message_type}`);
 });
 
