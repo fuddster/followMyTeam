@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 //const slashCommandFactory = require('./slashCommand');
 
 const app = new Express();
-app.use(express.json());
+app.use(Express.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
