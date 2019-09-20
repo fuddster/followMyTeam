@@ -35,11 +35,19 @@ app.get('/', (req, res) => res.send('Hello World!'));
 app.post('/tba/events', function (req, res) {
   console.log('Got TBA notification');
   console.log('request =' + JSON.stringify(req.body));
-  console.log(req.baseUrl);
-  console.log(req.body);
-  console.log(req.path);
-  console.log(req.get('content-type'));
-  console.log(`Body: ${req.body.message_type}`);
+  console.log('path = ' + req.path);
+  switch (req.body.message_type) {
+    case 'verification':
+      console.log(`Verification code = ${req.body.message_data.verification_key}`);
+      break;
+    case 'ping':
+      console.log('Ping Received');
+      res.sendStatus(200);
+      break;
+    default:
+      console.log(`${req.body.message_type} not handled`);
+      break;
+  }
 });
 
 app.listen(port, () => {
