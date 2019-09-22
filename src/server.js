@@ -34,6 +34,7 @@ const port = PORT || 3000;
 app.get('/', (req, res) => res.send('Hello World!'));
 app.post('/tba/events', function (req, res) {
   console.log('Got TBA notification');
+  console.log(`Body = ${req.body}`)
   console.log('request =' + JSON.stringify(req.body));
   console.log('path = ' + req.path);
   switch (req.body.message_type) {
