@@ -40,6 +40,7 @@ app.post('/tba/events', function (req, res) {
   switch (req.body.message_type) {
     case 'verification':
       console.log(`Verification code = ${req.body.message_data.verification_key}`);
+      res.sendStatus(200);
       break;
     case 'ping':
       console.log('Ping Received');
