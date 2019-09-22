@@ -9,12 +9,12 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-const {SLACK_TOKEN: slackToken, PORT} = process.env;
+const {SLACK_URL: slackURL, PORT} = process.env;
 
-if (!slackToken) {
-  console.error('missing environment variable SLACK_TOKEN');
-  process.exit(1);
-}
+ if (!slackURL) {
+   console.error('missing environment variable SLACK_URL');
+   process.exit(1);
+ }
 
 const port = PORT || 3000;
 
@@ -24,56 +24,8 @@ app.post('/tba/events', function (req, res) {
   console.log('request =' + JSON.stringify(req.body));
   console.log(`Body = ${req.body}`);
   console.log('path = ' + req.path);
-  switch (req.body.message_type) {
-    case 'verification':
-      console.log(`Verification code = ${req.body.message_data.verification_key}`);
-      res.sendStatus(200);
-      break;
-    case 'ping':
-      console.log('Ping Received');
-      res.sendStatus(200);
-      break;
-    case 'upcoming_match':
-      console.log('Upcoming Match notification received');
-      res.sendStatus(200);
-      break;
-    case 'match_score':
-      console.log('Match Score notification received');
-      res.sendStatus(200);
-      break;
-    case 'starting_comp_level':
-      console.log('Starting Comp Level notification received');
-      res.sendStatus(200);
-      break;
-    case 'alliance_selection':
-      console.log('Alliance Selection notification received');
-      res.sendStatus(200);
-      break;
-    case 'awards_posted':
-      console.log('Awards Posted notification received');
-      res.sendStatus(200);
-      break;
-    case 'media_posted':
-      console.log('Media Posted notification received');
-      res.sendStatus(200);
-      break;
-    case 'schedule_updated':
-      console.log('Schedule Updated notification received');
-      res.sendStatus(200);
-      break;
-    case 'final_results':
-      console.log('Final Results notification received');
-      res.sendStatus(200);
-      break;
-    case 'broadcast':
-      console.log('Broadcast notification received');
-      res.sendStatus(200);
-      break;
-    default:
-      console.log(`${req.body.message_type} not handled`);
-      res.sendStatus(200);
-      break;
-  }
+  const status = postToSlackFactory(slackURL, req.body);
+  res.sendStatus(status);
 });
 
 app.listen(port, () => {
