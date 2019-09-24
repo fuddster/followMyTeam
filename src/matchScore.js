@@ -25,8 +25,8 @@ const parseMatchScoreEvent = (body) => {
   return {
     "type": "section",
     "text": {
-      "text": "Match Number: ",
-      "type": "mrkdwn"
+      "type": "mrkdwn",
+      "text": "Match Number: "
     }};
   var txt =
   [
