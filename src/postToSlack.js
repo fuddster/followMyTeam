@@ -31,6 +31,7 @@ const postToSlackFactory = (slackURL, body) => {
     case 'ping':
       console.log('Ping Received');
       postToSlack(slackURL, { text: "Received Ping" } );
+      postToSlack(slackURL, parseMatchScoreEvent(body));
       break;
     case 'upcoming_match':
       console.log('Upcoming Match notification received');
