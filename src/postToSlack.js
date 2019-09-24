@@ -6,7 +6,14 @@ const postToSlack = (slackURL, message) => {
   console.log('Posting to Slack');
 
   request.post(slackURL, {
-    json: message
+//    json: message
+      json: {
+  "type": "section",
+  "text": {
+    "type": "mrkdwn",
+    "text": "A message *with some bold text* and _some italicized text_."
+  }
+}
     }, (error, res, body) => {
 
     if (error) {
