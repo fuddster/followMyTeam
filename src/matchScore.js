@@ -73,6 +73,9 @@ const parseMatchScoreEvent = (body) => {
 		  }
     }
   ];
+
+  console.log(txt);
+
   return txt;
 };
 
