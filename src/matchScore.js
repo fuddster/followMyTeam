@@ -1,5 +1,5 @@
 // src/match_score.js
-const parseMatchScore = (body) => {
+const parseMatchScoreEvent = (body) => {
   var txt = "";
 
   const matchNumber = body.message_data.match.match_number;
