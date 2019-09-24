@@ -23,11 +23,12 @@ const parseMatchScoreEvent = (body) => {
   const redAlliance3 = 9997;
 
   return {
-    "type": "section",
-    "text": {
-      "type": "mrkdwn",
-      "text": "Match Number: "
-    }};
+  "type": "section",
+  "text": {
+    "type": "mrkdwn",
+    "text": "A message *with some bold text* and _some italicized text_."
+  }
+};
   var txt =
   [
 	  {
