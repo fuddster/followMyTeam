@@ -22,6 +22,7 @@ const parseMatchScoreEvent = (body) => {
   const redAlliance2 = 9998;
   const redAlliance3 = 9997;
 
+  return { text: "Received Ping" };
   var txt =
   [
 	  {
