@@ -30,7 +30,7 @@ const postToSlackFactory = (slackURL, body) => {
       break;
     case 'ping':
       console.log('Ping Received');
-      postToSlack(slackURL, { text: "Received Ping" } );
+      //postToSlack(slackURL, { text: "Received Ping" } );
       postToSlack(slackURL, parseMatchScoreEvent(body));
       break;
     case 'upcoming_match':
