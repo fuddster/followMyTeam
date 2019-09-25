@@ -31,49 +31,48 @@ const parseMatchScoreEvent = (body) => {
     "text": "A message *with some bold text* and _some italicized text_."
   }
 }]};
-  var txt =
+  var txt = { "blocks":
   [
 	  {
 		  "type": "section",
 		  "text": {
 			  "text": eventName + '\nMatch Number: ' + matchNumber + '\nResult:',
 			  "type": "mrkdwn"
-		  }
-      // ,
-		  // "fields": [
-			//   {
-			// 	  "type": "mrkdwn",
-			// 	  "text": "*Blue Alliance*"
-			//   },
-			//   {
-			// 	  "type": "mrkdwn",
-			// 	  "text": "*Red Alliance*"
-			//   },
-			//   {
-			// 	  "type": "plain_text",
-			// 	  "text": blueAlliance1
-			//   },
-			//   {
-			// 	  "type": "plain_text",
-			// 	  "text": redAlliance1
-			//   },
-			//   {
-			// 	  "type": "plain_text",
-			// 	  "text": blueAlliance2
-			//   },
-			//   {
-			// 	  "type": "plain_text",
-			// 	  "text": redAlliance2
-			//   },
-			//   {
-			// 	  "type": "plain_text",
-			// 	  "text": blueAlliance3
-			//   },
-			//   {
-			// 	  "type": "plain_text",
-			// 	  "text": redAlliance3
-			//   }
-		  // ]
+		  },
+		  "fields": [
+			  {
+				  "type": "mrkdwn",
+				  "text": "*Blue Alliance*"
+			  },
+			  {
+				  "type": "mrkdwn",
+				  "text": "*Red Alliance*"
+			  },
+			  {
+				  "type": "plain_text",
+				  "text": blueAlliance1
+			  },
+			  {
+				  "type": "plain_text",
+				  "text": redAlliance1
+			  },
+			  {
+				  "type": "plain_text",
+				  "text": blueAlliance2
+			  },
+			  {
+				  "type": "plain_text",
+				  "text": redAlliance2
+			  },
+			  {
+				  "type": "plain_text",
+				  "text": blueAlliance3
+			  },
+			  {
+				  "type": "plain_text",
+				  "text": redAlliance3
+			  }
+		  ]
 	  },
 	  {
 		  "type": "section",
@@ -82,7 +81,7 @@ const parseMatchScoreEvent = (body) => {
 			  "type": "mrkdwn"
 		  }
     }
-  ];
+  ]};
 
   console.log(txt);
 
