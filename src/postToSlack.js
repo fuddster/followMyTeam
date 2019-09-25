@@ -1,5 +1,5 @@
 // src/postToSlack.js
-const request = require('request');
+const request = require('request').debug = true;
 const parseMatchScoreEvent = require('./matchScore');
 
 const postToSlack = (slackURL, message) => {
