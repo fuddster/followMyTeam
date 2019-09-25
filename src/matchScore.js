@@ -22,12 +22,16 @@ const parseMatchScoreEvent = (body) => {
   const redAlliance2 = 9998;
   const redAlliance3 = 9997;
 
+  var opening = eventName + '\nMatch Number: ' + matchNumber + '\nResult:';
+  var score = '*Score*:  ' +  blueAllianceScore + ' - ' + redAllianceScore;
+  console.log(`Opening: ${opening}`);
+  console.log(`Score: ${score}`);
   var txt = { "blocks":
   [
 	  {
 		  "type": "section",
 		  "text": {
-			  "text": eventName + '\nMatch Number: ' + matchNumber + '\nResult:',
+			  "text": opening,
 			  "type": "mrkdwn"
 		  },
 		  "fields": [
@@ -64,14 +68,14 @@ const parseMatchScoreEvent = (body) => {
 				  "text": redAlliance3
 			  }
 		  ]
-	  },
-	  {
+    },
+    {
 		  "type": "section",
 		  "text": {
-			  "text": '*Score*:  ' +  blueAllianceScore + ' - ' + redAllianceScore,
+			  "text": score,
 			  "type": "mrkdwn"
-		  }
-    }
+      }
+	  }
   ]};
 
   console.log(txt);
