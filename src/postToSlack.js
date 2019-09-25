@@ -6,7 +6,8 @@ const postToSlack = (slackURL, message) => {
   console.log('Posting to Slack');
 
   const headers = {"Content-type": "application/json"};
-  var payload = JSON.stringify({ json: message });
+  //var payload = JSON.stringify({ json: message });
+  var payload = { json: message };
   request.post({url: slackURL, headers: headers, payload: payload}, (error, res, body) => {
 
     if (error) {
@@ -17,7 +18,7 @@ const postToSlack = (slackURL, message) => {
 
     console.log(`statusCode: ${res.statusCode}`);
     console.log(`statusMessage: ${res.statusMessage}`);
-    console.log(`toJSON: ${res.toJSON}`);
+    console.log(`toJSON: ${res.toJSON()}`);
     console.log(`body: ${res.body}`);
     console.log(`keys = ${Object.keys(res)}`);
     console.log(`body2: ${body}`);
