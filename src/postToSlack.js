@@ -8,8 +8,15 @@ const postToSlack = (slackURL, message) => {
   //const headers = {"Content-type": "application/json"};
   //var payload = JSON.stringify({ json: message });
   //var payload = { json: message };
-  var payload = JSON.stringify({ text: "This is a test!" });
-  var payload = { text: "This is a test!" };
+  //var payload = JSON.stringify({ text: "This is a test!" });
+  //var payload = { text: "This is a test!" };
+  var payload = {
+  "type": "section",
+  "text": {
+    "type": "mrkdwn",
+    "text": "A message *with some bold text* and _some italicized text_."
+  }};
+
   //request.post({url: slackURL, headers: headers, payload: payload}, (error, res, body) => {
   request.post({
     url: slackURL,
