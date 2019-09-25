@@ -78,7 +78,7 @@ const parseMatchScoreEvent = (body) => {
 	  }
   ]};
 
-  console.log(txt);
+  console.log(JSON.stringify(txt));
 
   return txt;
 };
