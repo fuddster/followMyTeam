@@ -45,27 +45,27 @@ const parseMatchScoreEvent = (body) => {
 			  },
 			  {
 				  "type": "plain_text",
-				  "text": blueAlliance1
+				  "text": blueAlliance1.toString()
 			  },
 			  {
 				  "type": "plain_text",
-				  "text": redAlliance1
+				  "text": redAlliance1.toString()
 			  },
 			  {
 				  "type": "plain_text",
-				  "text": blueAlliance2
+				  "text": blueAlliance2.toString()
 			  },
 			  {
 				  "type": "plain_text",
-				  "text": redAlliance2
+				  "text": redAlliance2.toString()
 			  },
 			  {
 				  "type": "plain_text",
-				  "text": blueAlliance3
+				  "text": blueAlliance3.toString()
 			  },
 			  {
 				  "type": "plain_text",
-				  "text": redAlliance3
+				  "text": redAlliance3.toString()
 			  }
 		  ]
     },
