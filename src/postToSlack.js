@@ -5,9 +5,9 @@ const parseMatchScoreEvent = require('./matchScore');
 const postToSlack = (slackURL, message) => {
   console.log('Posting to Slack');
 
-  request.post(slackURL, {
+  request.post(slackURL, JSON.stringify({
       json: message
-    }, (error, res, body) => {
+    }), (error, res, body) => {
 
     if (error) {
       console.error('There was an error!');
