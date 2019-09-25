@@ -16,6 +16,9 @@ const postToSlack = (slackURL, message) => {
     }
 
     console.log(`statusCode: ${res.statusCode}`);
+    console.log(`statusCode: ${res.statusMessage}`);
+    console.log(`statusCode: ${res.toJSON}`);
+    console.log(`statusCode: ${res.body}`);
     console.log(`keys = ${Object.keys(res)}`);
     console.log(body);
   });
