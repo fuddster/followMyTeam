@@ -1,40 +1,25 @@
 // src/postToSlack.js
+
 const request = require('request');
 const parseMatchScoreEvent = require('./matchScore');
 
 const postToSlack = (slackURL, message) => {
   console.log('Posting to Slack');
 
-  //const headers = {"Content-type": "application/json"};
-  //var payload = JSON.stringify({ json: message });
-  //var payload = { json: message };
-  //var payload = JSON.stringify({ text: "This is a test!" });
-  //var payload = { text: "This is a test!" };
-  // var payload = { "blocks": [{
-  // "type": "section",
-  // "text": {
-  //   "type": "mrkdwn",
-  //   "text": "A message *with some bold text* and _some italicized text_."
-  // }}]};
-
-  //request.post({url: slackURL, headers: headers, payload: payload}, (error, res, body) => {
   request.post({
     url: slackURL,
     json: message
   }, (error, res, body) => {
-
     if (error) {
       console.error('There was an error!');
       console.error(error);
       return;
     }
 
-    //console.log(`request: ${request}`)
-    console.log(`statusCode: ${res.statusCode}`);
-    console.log(`statusMessage: ${res.statusMessage}`);
-    console.log(`res = ${JSON.stringify(res,null,4)}`);
-    console.log(`body2: ${body}`);
-    console.log(`error: ${JSON.stringify(error, null, 4)}`);
+    if (res.statusCode != 200){
+      console.log(`statusCode: ${res.statusCode}`);
+      console.log(`statusMessage: ${res.statusMessage}`);
+    }
   });
 
   return;
@@ -49,8 +34,7 @@ const postToSlackFactory = (slackURL, body) => {
       break;
     case 'ping':
       console.log('Ping Received');
-      //postToSlack(slackURL, { text: "Received Ping" } );
-      postToSlack(slackURL, parseMatchScoreEvent(body));
+      postToSlack(slackURL, { text: "Received Ping" } );
       break;
     case 'upcoming_match':
       console.log('Upcoming Match notification received');
