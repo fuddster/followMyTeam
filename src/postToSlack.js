@@ -9,6 +9,7 @@ const postToSlack = (slackURL, message) => {
   //var payload = JSON.stringify({ json: message });
   //var payload = { json: message };
   var payload = JSON.stringify({ text: "This is a test!" });
+  var payload = { text: "This is a test!" };
   //request.post({url: slackURL, headers: headers, payload: payload}, (error, res, body) => {
   request.post({
     url: slackURL,
