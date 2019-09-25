@@ -22,15 +22,6 @@ const parseMatchScoreEvent = (body) => {
   const redAlliance2 = 9998;
   const redAlliance3 = 9997;
 
-//  JSON.stringify(payload)
-
-  return { "blocks": [{
-  "type": "section",
-  "text": {
-    "type": "mrkdwn",
-    "text": "A message *with some bold text* and _some italicized text_."
-  }
-}]};
   var txt = { "blocks":
   [
 	  {
