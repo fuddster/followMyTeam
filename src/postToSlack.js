@@ -20,7 +20,7 @@ const postToSlack = (slackURL, message) => {
     console.log(`statusCode: ${res.statusCode}`);
     console.log(`statusMessage: ${res.statusMessage}`);
     console.log(`headers: ${JSON.stringify(res.headers, null, 4)}`);
-    console.log(`keys = ${Object.keys(res)}`);
+    console.log(`keys = ${JSON.stringify(res,null,4)}`);
     console.log(`body2: ${body}`);
   });
 
