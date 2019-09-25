@@ -24,13 +24,13 @@ const parseMatchScoreEvent = (body) => {
 
 //  JSON.stringify(payload)
 
-  return {
+  return { "blocks": [{
   "type": "section",
   "text": {
     "type": "mrkdwn",
     "text": "A message *with some bold text* and _some italicized text_."
   }
-};
+}]};
   var txt =
   [
 	  {
