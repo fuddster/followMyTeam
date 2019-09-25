@@ -5,11 +5,15 @@ const parseMatchScoreEvent = require('./matchScore');
 const postToSlack = (slackURL, message) => {
   console.log('Posting to Slack');
 
-  const headers = {"Content-type": "application/json"};
+  //const headers = {"Content-type": "application/json"};
   //var payload = JSON.stringify({ json: message });
   //var payload = { json: message };
   var payload = JSON.stringify({ text: "This is a test!" });
-  request.post({url: slackURL, headers: headers, payload: payload}, (error, res, body) => {
+  //request.post({url: slackURL, headers: headers, payload: payload}, (error, res, body) => {
+  request.post({
+    url: slackURL,
+    json: payload
+  }, (error, res, body) => {
 
     if (error) {
       console.error('There was an error!');
@@ -17,12 +21,13 @@ const postToSlack = (slackURL, message) => {
       return;
     }
 
-    console.log(`request: ${request}`)
+    //console.log(`request: ${request}`)
     console.log(`statusCode: ${res.statusCode}`);
     console.log(`statusMessage: ${res.statusMessage}`);
     console.log(`headers: ${JSON.stringify(res.headers, null, 4)}`);
     console.log(`keys = ${JSON.stringify(res,null,4)}`);
     console.log(`body2: ${body}`);
+    console.log(`error: ${JSON.stringify(error, null, 4)}`);
   });
 
   return;
