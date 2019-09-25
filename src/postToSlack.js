@@ -10,6 +10,7 @@ const postToSlack = (slackURL, message) => {
     }, (error, res, body) => {
 
     if (error) {
+      console.error('There was an error!');
       console.error(error);
       return;
     }
