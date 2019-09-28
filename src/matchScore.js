@@ -2,6 +2,7 @@
 
 const parseMatchScoreEvent = (body) => {
 
+  const compLevel = body.message_data.match.comp_level;
   const matchNumber = body.message_data.match.match_number;
   const eventName = body.message_data.event_name;
   const blueAlliance1 = body.message_data.match.alliances.blue.teams[0].substr(3);
@@ -19,7 +20,30 @@ const parseMatchScoreEvent = (body) => {
     redAllianceScore = '*' + redAllianceScore + '*';
   }
 
-  var opening = eventName + '\nMatch Number: ' + matchNumber + '\nResult:';
+  var cl = "";
+
+  switch(compLevel) {
+    case 'qm':
+      cl = "Qualification ";
+      break;
+    case 'ef':
+      cl = "Eighth-Finals ";
+      break;
+    case 'qf':
+      cl = "Quarterfinals ";
+      break;
+    case 'sf':
+      cl = "Semifinals ";
+      break;
+    case 'f':
+      cl = "Finals ";
+      break;
+    default:
+      cl = "";
+      console.log("WARNING: Unhandled compLevel value: " + compLevel);
+  }
+
+  var opening = eventName + '\n' + cl + 'Match Number: ' + matchNumber + '\nResult:';
   var score = '*Score*:  ' +  blueAllianceScore + ' - ' + redAllianceScore;
 
   var txt = { "blocks":
