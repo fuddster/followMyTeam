@@ -46,7 +46,7 @@ const parseMatchScoreEvent = (body) => {
   var ba = '*Blue Alliance:*\n' + blueAlliance1 + '\n' + blueAlliance2 + '\n' + blueAlliance3;
   var ra = '*Red Alliance:*\n' + redAlliance1 + '\n' + redAlliance2 + '\n' + redAlliance3;
   var opening = eventName + '\n' + cl + 'Match Number: ' + matchNumber + '\nResult:';
-  var score = '*Score*:  ' +  blueAllianceScore + ' - ' + redAllianceScore;
+  var score = '*Score*:\nBlue Alliance ' +  blueAllianceScore + ' - ' + redAllianceScore + ' Red Alliance';
 
   var txt = { "blocks":
   [
