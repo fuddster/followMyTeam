@@ -43,6 +43,8 @@ const parseMatchScoreEvent = (body) => {
       console.log("WARNING: Unhandled compLevel value: " + compLevel);
   }
 
+  var ba = '*Blue Alliance:*\n' + blueAlliance1 + '\n' + blueAlliance2 + '\n' + blueAlliance3;
+  var ra = '*Red Alliance:*\n' + redAlliance1 + '\n' + redAlliance2 + '\n' + redAlliance3;
   var opening = eventName + '\n' + cl + 'Match Number: ' + matchNumber + '\nResult:';
   var score = '*Score*:  ' +  blueAllianceScore + ' - ' + redAllianceScore;
 
@@ -53,41 +55,21 @@ const parseMatchScoreEvent = (body) => {
 		  "text": {
 			  "text": opening,
 			  "type": "mrkdwn"
-		  },
-		  "fields": [
-			  {
-				  "type": "mrkdwn",
-				  "text": "*Blue Alliance*"
-			  },
-			  {
-				  "type": "mrkdwn",
-				  "text": "*Red Alliance*"
-			  },
-			  {
-				  "type": "plain_text",
-				  "text": blueAlliance1.toString()
-			  },
-			  {
-				  "type": "plain_text",
-				  "text": redAlliance1.toString()
-			  },
-			  {
-				  "type": "plain_text",
-				  "text": blueAlliance2.toString()
-			  },
-			  {
-				  "type": "plain_text",
-				  "text": redAlliance2.toString()
-			  },
-			  {
-				  "type": "plain_text",
-				  "text": blueAlliance3.toString()
-			  },
-			  {
-				  "type": "plain_text",
-				  "text": redAlliance3.toString()
-			  }
-		  ]
+		  }
+    },
+    {
+		  "type": "section",
+		  "text": {
+			  "text": ba,
+			  "type": "mrkdwn"
+      }
+    },
+    {
+		  "type": "section",
+		  "text": {
+			  "text": ra,
+			  "type": "mrkdwn"
+      }
     },
     {
 		  "type": "section",
